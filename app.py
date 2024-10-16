@@ -21,7 +21,7 @@ import requests
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'b35dfe6ce150230940bd145823034485'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/app_excel3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:Vjr@1234567890@localhost/app_excel3'
 app.config['MAX_CONTENT_LENGTH'] = 150 * 1024 * 1024  # 150 MB
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['SESSION_TYPE'] = 'filesystem'  # Atau 'redis', 'memcached', dll.
