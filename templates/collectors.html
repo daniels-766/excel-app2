@@ -1,0 +1,9 @@
+<form method="POST">
+    <h3>List of Collectors in {{ location }}</h3>
+    <ul>
+        {% for user in users %}
+        <li>{{ user.name }} - {{ user.lokasi }}</li>
+        {% endfor %}
+    </ul>
+    <button type="submit" class="btn btn-lg btn-primary">Apply</button>
+</form>

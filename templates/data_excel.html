@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<!--begin::Head-->
+	<head><base href="">
+		<title>Excel Page</title>
+		<meta name="description" content="The most advanced Bootstrap Admin Theme on Themeforest trusted by 94,000 beginners and professionals. Multi-demo, Dark Mode, RTL support and complete React, Angular, Vue &amp; Laravel versions. Grab your copy now and get life-time updates for free." />
+		<meta name="keywords" content="Metronic, bootstrap, bootstrap 5, Angular, VueJs, React, Laravel, admin themes, web design, figma, web development, free templates, free admin themes, bootstrap theme, bootstrap template, bootstrap dashboard, bootstrap dak mode, bootstrap button, bootstrap datepicker, bootstrap timepicker, fullcalendar, datatables, flaticon" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta charset="utf-8" />
+		<meta property="og:locale" content="en_US" />
+		<meta property="og:type" content="article" />
+		<meta property="og:title" content="Metronic - Bootstrap 5 HTML, VueJS, React, Angular &amp; Laravel Admin Dashboard Theme" />
+		<meta property="og:url" content="https://keenthemes.com/metronic" />
+		<meta property="og:site_name" content="Keenthemes | Metronic" />
+		<link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
+		<link rel="shortcut icon" href="../static/assets/media/logos/logo.png" />
+		<!--begin::Fonts-->
+		<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" />
+		<!--end::Fonts-->
+		<!--begin::Page Vendor Stylesheets(used by this page)-->
+		<link href="../static/assets/plugins/custom/fullcalendar/fullcalendar.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Page Vendor Stylesheets-->
+		<!--begin::Global Stylesheets Bundle(used by all pages)-->
+		<link href="../static/assets/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+		<link href="../static/assets/css/style.bundle.css" rel="stylesheet" type="text/css" />
+		<!--end::Global Stylesheets Bundle-->
+        <style>
+            /* Full page overlay */
+            .loading-overlay {
+                display: none;
+                position: fixed;
+                z-index: 9999;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(0, 0, 0, 0.5); /* Background semi-transparent */
+            }
+        
+            /* Spinner in the center */
+            .loading-overlay .spinner {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                font-size: 3rem;
+                color: #fff;
+            }
+        </style>        
+	</head>
+	<!--end::Head-->
+	<!--begin::Body-->
+	<body id="kt_body" class="header-fixed header-tablet-and-mobile-fixed toolbar-enabled toolbar-fixed aside-enabled aside-fixed" style="--kt-toolbar-height:55px;--kt-toolbar-height-tablet-and-mobile:55px">
+		<!--begin::Main-->
+		<!--begin::Root-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="page d-flex flex-row flex-column-fluid">
+				<!--begin::Aside-->
+				<div id="kt_aside" class="aside aside-dark aside-hoverable" data-kt-drawer="true" data-kt-drawer-name="aside" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="start" data-kt-drawer-toggle="#kt_aside_mobile_toggle">
+					<!--begin::Brand-->
+					<div class="aside-logo flex-column-auto" id="kt_aside_logo">
+						<!--begin::Logo-->
+						<a href="../../demo1/dist/index.html">
+							<img alt="Logo" src="../static/assets/media/logos/logo-1-dark.svg" class="h-25px logo" />
+						</a>
+						<!--end::Logo-->
+						<!--begin::Aside toggler-->
+						<div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle" data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body" data-kt-toggle-name="aside-minimize">
+							<!--begin::Svg Icon | path: icons/duotune/arrows/arr079.svg-->
+							<span class="svg-icon svg-icon-1 rotate-180">
+								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+									<path opacity="0.5" d="M14.2657 11.4343L18.45 7.25C18.8642 6.83579 18.8642 6.16421 18.45 5.75C18.0358 5.33579 17.3642 5.33579 16.95 5.75L11.4071 11.2929C11.0166 11.6834 11.0166 12.3166 11.4071 12.7071L16.95 18.25C17.3642 18.6642 18.0358 18.6642 18.45 18.25C18.8642 17.8358 18.8642 17.1642 18.45 16.75L14.2657 12.5657C13.9533 12.2533 13.9533 11.7467 14.2657 11.4343Z" fill="black" />
+									<path d="M8.2657 11.4343L12.45 7.25C12.8642 6.83579 12.8642 6.16421 12.45 5.75C12.0358 5.33579 11.3642 5.33579 10.95 5.75L5.40712 11.2929C5.01659 11.6834 5.01659 12.3166 5.40712 12.7071L10.95 18.25C11.3642 18.6642 12.0358 18.6642 12.45 18.25C12.8642 17.8358 12.8642 17.1642 12.45 16.75L8.2657 12.5657C7.95328 12.2533 7.95328 11.7467 8.2657 11.4343Z" fill="black" />
+								</svg>
+							</span>
+							<!--end::Svg Icon-->
+						</div>
+						<!--end::Aside toggler-->
+					</div>
+					<!--end::Brand-->
+					<!--begin::Aside menu-->
+					<div class="aside-menu flex-column-fluid">
+						<!--begin::Aside Menu-->
+						<div class="hover-scroll-overlay-y my-5 my-lg-5" id="kt_aside_menu_wrapper" data-kt-scroll="true" data-kt-scroll-activate="{default: false, lg: true}" data-kt-scroll-height="auto" data-kt-scroll-dependencies="#kt_aside_logo, #kt_aside_footer" data-kt-scroll-wrappers="#kt_aside_menu" data-kt-scroll-offset="0">
+							<!--begin::Menu-->
+							<div class="menu menu-column menu-title-gray-800 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-500" id="#kt_aside_menu" data-kt-menu="true">
+								<div class="menu-item">
+									<div class="menu-content pb-2">
+										<span class="menu-section text-muted text-uppercase fs-8 ls-1">Dashboard</span>
+									</div>
+								</div>
+								<div class="menu-item">
+									<a class="menu-link" href="{{ url_for('dashboard') }}">
+										<span class="menu-icon">
+											<!--begin::Svg Icon | path: icons/duotune/general/gen025.svg-->
+											<span class="svg-icon svg-icon-2">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+													<rect x="2" y="2" width="9" height="9" rx="2" fill="black" />
+													<rect opacity="0.3" x="13" y="2" width="9" height="9" rx="2" fill="black" />
+													<rect opacity="0.3" x="13" y="13" width="9" height="9" rx="2" fill="black" />
+													<rect opacity="0.3" x="2" y="13" width="9" height="9" rx="2" fill="black" />
+												</svg>
+											</span>
+											<!--end::Svg Icon-->
+										</span>
+										<span class="menu-title">User</span>
+									</a>
+								</div>
+								<div class="menu-item">
+									<a class="menu-link" href="{{ url_for('upload_excel') }}">
+										<span class="menu-icon">
+											<!--begin::Svg Icon | path: icons/duotune/art/art002.svg-->
+											<span class="svg-icon svg-icon-2">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="25" viewBox="0 0 24 25" fill="none">
+													<path opacity="0.3" d="M8.9 21L7.19999 22.6999C6.79999 23.0999 6.2 23.0999 5.8 22.6999L4.1 21H8.9ZM4 16.0999L2.3 17.8C1.9 18.2 1.9 18.7999 2.3 19.1999L4 20.9V16.0999ZM19.3 9.1999L15.8 5.6999C15.4 5.2999 14.8 5.2999 14.4 5.6999L9 11.0999V21L19.3 10.6999C19.7 10.2999 19.7 9.5999 19.3 9.1999Z" fill="black" />
+													<path d="M21 15V20C21 20.6 20.6 21 20 21H11.8L18.8 14H20C20.6 14 21 14.4 21 15ZM10 21V4C10 3.4 9.6 3 9 3H4C3.4 3 3 3.4 3 4V21C3 21.6 3.4 22 4 22H9C9.6 22 10 21.6 10 21ZM7.5 18.5C7.5 19.1 7.1 19.5 6.5 19.5C5.9 19.5 5.5 19.1 5.5 18.5C5.5 17.9 5.9 17.5 6.5 17.5C7.1 17.5 7.5 17.9 7.5 18.5Z" fill="black" />
+												</svg>
+											</span>
+											<!--end::Svg Icon-->
+										</span>
+										<span class="menu-title">Excel</span>
+									</a>
+								</div>
+								<div class="menu-item">
+									<a class="menu-link active" href="#">
+										<span class="menu-icon">
+											<!--begin::Svg Icon | path: icons/duotune/coding/cod003.svg-->
+											<span class="svg-icon svg-icon-2">
+												<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+													<path d="M16.95 18.9688C16.75 18.9688 16.55 18.8688 16.35 18.7688C15.85 18.4688 15.75 17.8688 16.05 17.3688L19.65 11.9688L16.05 6.56876C15.75 6.06876 15.85 5.46873 16.35 5.16873C16.85 4.86873 17.45 4.96878 17.75 5.46878L21.75 11.4688C21.95 11.7688 21.95 12.2688 21.75 12.5688L17.75 18.5688C17.55 18.7688 17.25 18.9688 16.95 18.9688ZM7.55001 18.7688C8.05001 18.4688 8.15 17.8688 7.85 17.3688L4.25001 11.9688L7.85 6.56876C8.15 6.06876 8.05001 5.46873 7.55001 5.16873C7.05001 4.86873 6.45 4.96878 6.15 5.46878L2.15 11.4688C1.95 11.7688 1.95 12.2688 2.15 12.5688L6.15 18.5688C6.35 18.8688 6.65 18.9688 6.95 18.9688C7.15 18.9688 7.35001 18.8688 7.55001 18.7688Z" fill="black" />
+													<path opacity="0.3" d="M10.45 18.9687C10.35 18.9687 10.25 18.9687 10.25 18.9687C9.75 18.8687 9.35 18.2688 9.55 17.7688L12.55 5.76878C12.65 5.26878 13.25 4.8687 13.75 5.0687C14.25 5.1687 14.65 5.76878 14.45 6.26878L11.45 18.2688C11.35 18.6688 10.85 18.9687 10.45 18.9687Z" fill="black" />
+												</svg>
+											</span>
+											<!--end::Svg Icon-->
+										</span>
+										<span class="menu-title">View Excel</span>
+									</a>
+								</div>
+							</div>
+							<!--end::Menu-->
+						</div>
+						<!--end::Aside Menu-->
+					</div>
+					<!--end::Aside menu-->
+					<!--begin::Footer-->
+					
+					<!--end::Footer-->
+				</div>
+				<!--end::Aside-->
+				<!--begin::Wrapper-->
+				<div class="wrapper d-flex flex-column flex-row-fluid" id="kt_wrapper">
+					<!--begin::Header-->
+					<div id="kt_header" style="" class="header align-items-stretch">
+						<!--begin::Container-->
+						<div class="container-fluid d-flex align-items-stretch justify-content-between">
+							<!--begin::Aside mobile toggle-->
+							<div class="d-flex align-items-center d-lg-none ms-n3 me-1" title="Show aside menu">
+								<div class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px" id="kt_aside_mobile_toggle">
+									<!--begin::Svg Icon | path: icons/duotune/abstract/abs015.svg-->
+									<span class="svg-icon svg-icon-2x mt-1">
+										<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+											<path d="M21 7H3C2.4 7 2 6.6 2 6V4C2 3.4 2.4 3 3 3H21C21.6 3 22 3.4 22 4V6C22 6.6 21.6 7 21 7Z" fill="black" />
+											<path opacity="0.3" d="M21 14H3C2.4 14 2 13.6 2 13V11C2 10.4 2.4 10 3 10H21C21.6 10 22 10.4 22 11V13C22 13.6 21.6 14 21 14ZM22 20V18C22 17.4 21.6 17 21 17H3C2.4 17 2 17.4 2 18V20C2 20.6 2.4 21 3 21H21C21.6 21 22 20.6 22 20Z" fill="black" />
+										</svg>
+									</span>
+									<!--end::Svg Icon-->
+								</div>
+							</div>
+							<!--end::Aside mobile toggle-->
+							<!--begin::Mobile logo-->
+							<div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
+								<a href="../../demo1/dist/index.html" class="d-lg-none">
+									<img alt="Logo" src="../static/assets/media/logos/vjr.png" class="h-30px" />
+								</a>
+							</div>
+							<!--end::Mobile logo-->
+							<!--begin::Wrapper-->
+							<div class="d-flex align-items-stretch justify-content-between flex-lg-grow-1">
+								<!--begin::Navbar-->
+								<div class="d-flex align-items-stretch" id="kt_header_nav">
+									<!--begin::Menu wrapper-->
+									<div class="header-menu align-items-stretch" data-kt-drawer="true" data-kt-drawer-name="header-menu" data-kt-drawer-activate="{default: true, lg: false}" data-kt-drawer-overlay="true" data-kt-drawer-width="{default:'200px', '300px': '250px'}" data-kt-drawer-direction="end" data-kt-drawer-toggle="#kt_header_menu_mobile_toggle" data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_body', lg: '#kt_header_nav'}">
+										<!--begin::Menu-->
+										<div class="menu menu-lg-rounded menu-column menu-lg-row menu-state-bg menu-title-gray-700 menu-state-title-primary menu-state-icon-primary menu-state-bullet-primary menu-arrow-gray-400 fw-bold my-5 my-lg-0 align-items-stretch" id="#kt_header_menu" data-kt-menu="true">
+											<div class="menu-item me-lg-1">
+												<a class="menu-link active py-3" href="#">
+													<span class="menu-title">Dashboard</span>
+												</a>
+											</div>
+											<div class="menu-item menu-lg-down-accordion me-lg-1">
+												<a class="menu-link py-3" href="{{ url_for('bagi_excel_data') }}">
+													<span class="menu-title">Bagi Excel</span>
+												</a>
+											</div>
+										</div>
+										<!--end::Menu-->
+									</div>
+									<!--end::Menu wrapper-->
+								</div>
+								<!--end::Navbar-->
+								<!--begin::Topbar-->
+								<div class="d-flex align-items-stretch flex-shrink-0">
+									<!--begin::Toolbar wrapper-->
+									<div class="d-flex align-items-stretch flex-shrink-0">
+										<!--begin::User-->
+										<div class="d-flex align-items-center ms-1 ms-lg-3" id="kt_header_user_menu_toggle">
+											<!--begin::Menu wrapper-->
+											<div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click" data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
+												<img src="../static/assets/media/avatars/150-26.jpg" alt="user" />
+											</div>
+											<!--begin::Menu-->
+											<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px" data-kt-menu="true">
+												<!--begin::Menu item-->
+												<div class="menu-item px-3">
+													<div class="menu-content d-flex align-items-center px-3">
+														<!--begin::Avatar-->
+														<div class="symbol symbol-50px me-5">
+															<img alt="Logo" src="../static/assets/media/avatars/150-26.jpg" />
+														</div>
+														<!--end::Avatar-->
+														<!--begin::Username-->
+														<div class="d-flex flex-column">
+															<div class="fw-bolder d-flex align-items-center fs-5">{{ current_user.username }}</div>
+														</div>
+														<!--end::Username-->
+													</div>
+												</div>
+												<!--end::Menu item-->
+												<!--begin::Menu separator-->
+												<div class="separator my-2"></div>
+												<!--end::Menu separator-->
+												<!--begin::Menu item-->
+												<!-- <div class="menu-item px-5">
+													<a href="../../demo1/dist/account/overview.html" class="menu-link px-5">My Profile</a>
+												</div> -->
+												<!--end::Menu item-->
+												<!--begin::Menu item-->
+												<div class="menu-item px-5">
+													<a href="{{ url_for('logout') }}" class="menu-link px-5">Sign Out</a>
+												</div>
+												<!--end::Menu item-->
+												<!--begin::Menu separator-->
+												<div class="separator my-2"></div>
+												<!--end::Menu separator-->
+											</div>
+											<!--end::Menu-->
+											<!--end::Menu wrapper-->
+										</div>
+										<!--end::User -->
+										<!--begin::Heaeder menu toggle-->
+										<div class="d-flex align-items-center d-lg-none ms-2 me-n3" title="Show header menu">
+											<div class="btn btn-icon btn-active-light-primary w-30px h-30px w-md-40px h-md-40px" id="kt_header_menu_mobile_toggle">
+												<!--begin::Svg Icon | path: icons/duotune/text/txt001.svg-->
+												<span class="svg-icon svg-icon-1">
+													<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+														<path d="M13 11H3C2.4 11 2 10.6 2 10V9C2 8.4 2.4 8 3 8H13C13.6 8 14 8.4 14 9V10C14 10.6 13.6 11 13 11ZM22 5V4C22 3.4 21.6 3 21 3H3C2.4 3 2 3.4 2 4V5C2 5.6 2.4 6 3 6H21C21.6 6 22 5.6 22 5Z" fill="black" />
+														<path opacity="0.3" d="M21 16H3C2.4 16 2 15.6 2 15V14C2 13.4 2.4 13 3 13H21C21.6 13 22 13.4 22 14V15C22 15.6 21.6 16 21 16ZM14 20V19C14 18.4 13.6 18 13 18H3C2.4 18 2 18.4 2 19V20C2 20.6 2.4 21 3 21H13C13.6 21 14 20.6 14 20Z" fill="black" />
+													</svg>
+												</span>
+												<!--end::Svg Icon-->
+											</div>
+										</div>
+										<!--end::Heaeder menu toggle-->
+									</div>
+									<!--end::Toolbar wrapper-->
+								</div>
+								<!--end::Topbar-->
+							</div>
+							<!--end::Wrapper-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Header-->
+					<!--begin::Content-->
+					<div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+						<!--begin::Toolbar-->
+						<div class="toolbar" id="kt_toolbar">
+							<!--begin::Container-->
+							<div id="kt_toolbar_container" class="container-fluid d-flex flex-stack">
+								<!--begin::Page title-->
+								<div data-kt-swapper="true" data-kt-swapper-mode="prepend" data-kt-swapper-parent="{default: '#kt_content_container', 'lg': '#kt_toolbar_container'}" class="page-title d-flex align-items-center flex-wrap me-3 mb-5 mb-lg-0">
+									<!--begin::Title-->
+									<h1 class="d-flex align-items-center text-dark fw-bolder fs-3 my-1">Menu for View Data Excel
+									<!--begin::Separator-->
+									<span class="h-20px border-gray-200 border-start ms-3 mx-2"></span>
+									<!--end::Separator-->
+									<!--begin::Description-->
+									<small class="text-muted fs-7 fw-bold my-1 ms-1">#XRS-45670</small>
+									<!--end::Description--></h1>
+									<!--end::Title-->
+								</div>
+								<!--end::Page title-->
+							</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Toolbar-->
+                        <!--begin::Post-->
+						<div class="post d-flex flex-column-fluid" id="kt_post">
+							<!--begin::Container-->
+							<div id="kt_content_container" class="container-xxl">
+								<!--begin::Row-->
+								<!--end::Row-->
+								<!--begin::Row-->
+								<div class="row gy-5 g-xl-8">
+									<!--begin::Col-->
+									<div class="col-xl-12">
+                                        <!--begin::Tables Widget 9-->
+                                        <div class="card card-xl-stretch mb-5 mb-xl-8">
+                                            <!--begin::Header-->
+                                            <div class="card-header border-0 pt-5">
+                                                <h3 class="card-title align-items-start flex-column">
+                                                    <span class="card-label fw-bolder fs-3 mb-1">Info Excel</span>
+                                                </h3>
+                                                <div class="d-flex align-items-center py-1">
+                                                    <!--begin::Wrapper-->
+                                                    <div class="me-4">
+                                                        <!--begin::Menu-->
+                                                        <a href="#" class="btn btn-sm btn-flex btn-light btn-active-primary fw-bolder" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                                                        <!--begin::Svg Icon | path: icons/duotune/general/gen031.svg-->
+                                                        <span class="svg-icon svg-icon-5 svg-icon-gray-500 me-1">
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+                                                                <path d="M19.0759 3H4.72777C3.95892 3 3.47768 3.83148 3.86067 4.49814L8.56967 12.6949C9.17923 13.7559 9.5 14.9582 9.5 16.1819V19.5072C9.5 20.2189 10.2223 20.7028 10.8805 20.432L13.8805 19.1977C14.2553 19.0435 14.5 18.6783 14.5 18.273V13.8372C14.5 12.8089 14.8171 11.8056 15.408 10.964L19.8943 4.57465C20.3596 3.912 19.8856 3 19.0759 3Z" fill="black" />
+                                                            </svg>
+                                                        </span>
+                                                        <!--end::Svg Icon-->Filter by location</a>
+                                                        <!--begin::Menu 1-->
+                                                        <div class="menu menu-sub menu-sub-dropdown w-250px w-md-300px" data-kt-menu="true" id="kt_menu_61484bf44d957">
+                                                            <!--begin::Header-->
+                                                            <div class="px-7 py-5">
+                                                                <div class="fs-5 text-dark fw-bolder">Filter Options</div>
+                                                            </div>
+                                                            <!--end::Header-->
+                                                            <!--begin::Menu separator-->
+                                                            <div class="separator border-gray-200"></div>
+                                                            <!--end::Menu separator-->
+                                                            <!--begin::Form-->
+                                                            <div class="px-7 py-5">
+                                                                <!--begin::Input group-->
+                                                                <form method="GET" action="{{ url_for('view_excel_data') }}">
+                                                                    <div class="mb-10">
+                                                                        <label class="form-label fw-bold">Lokasi:</label>
+                                                                        <select class="form-select form-select-solid" name="location" data-kt-select2="true" data-placeholder="Select option" data-dropdown-parent="#kt_menu_61484bf44d957" data-allow-clear="true">
+                                                                            <option value="">-- Select Location --</option>
+                                                                            <option value="Jakarta Pusat">Jakarta Pusat</option>
+                                                                            <option value="Jakarta Barat">Jakarta Barat</option>
+                                                                            <option value="Jakarta Selatan">Jakarta Selatan</option>
+                                                                            <option value="Jakarta Timur">Jakarta Timur</option>
+                                                                            <option value="Jakarta Utara">Jakarta Utara</option>
+                                                                            <option value="Kepulauan Seribu">Kepulauan Seribu</option>
+                                                                            <option value="Tangerang">Tangerang</option>
+                                                                            <option value="Tangerang Selatan">Tangerang Selatan</option>
+                                                                            <option value="Bogor">Bogor</option>
+                                                                            <option value="Depok">Depok</option>
+                                                                            <option value="Bekasi">Bekasi</option>
+                                                                            <option value="Medan">Medan</option>
+                                                                            <option value="Deli Serdang">Deli Serdang</option>
+                                                                            <option value="Tebing Tinggi">Tebing Tinggi</option>
+                                                                            <option value="Binjai">Binjai</option>
+                                                                            <option value="Langkat">Langkat</option>
+                                                                            <option value="Serdang Bedagai">Serdang Bedagai</option>
+                                                                            <option value="Pematang Siantar">Pematang Siantar</option>
+                                                                            <option value="Simalungun">Simalungun</option>
+                                                                            <option value="Asahan">Asahan</option>
+                                                                            <option value="Batu Bara">Batu Bara</option>
+                                                                            <option value="Tanjung Balai">Tanjung Balai</option>
+                                                                            <option value="Labuhan Batu">Labuhan Batu</option>
+                                                                            <option value="Labuhan Batu Utara">Labuhan Batu Utara</option>
+                                                                            <option value="Labuhan Batu Selatan">Labuhan Batu Selatan</option>
+                                                                            <option value="Karo">Karo</option>
+                                                                            <option value="Dairi">Dairi</option>
+                                                                            <option value="Pakpak Bharat">Pakpak Bharat</option>
+                                                                            <option value="Toba Samosir">Toba Samosir</option>
+                                                                            <option value="Samosir">Samosir</option>
+                                                                            <option value="Tapanuli Utara">Tapanuli Utara</option>
+                                                                            <option value="Humbang Hasundutan">Humbang Hasundutan</option>
+                                                                            <option value="Sibolga">Sibolga</option>
+                                                                            <option value="Tapanuli Tengah">Tapanuli Tengah</option>
+                                                                            <option value="Padang Sidempuan">Padang Sidempuan</option>
+                                                                            <option value="Tapanuli Selatan">Tapanuli Selatan</option>
+                                                                            <option value="Padang Lawas Utara">Padang Lawas Utara</option>
+                                                                            <option value="Padang Lawas">Padang Lawas</option>
+                                                                            <option value="Gunungsitoli">Gunungsitoli</option>
+                                                                            <option value="Nias Barat">Nias Barat</option>
+                                                                            <option value="Nias Utara">Nias Utara</option>
+                                                                            <option value="Nias">Nias</option>
+                                                                            <option value="Nias Selatan">Nias Selatan</option>
+                                                                            <option value="Mandailing Natal">Mandailing Natal</option>
+                                                                            <option value="Banda Aceh">Banda Aceh</option>
+                                                                            <option value="Aceh Besar">Aceh Besar</option>
+                                                                            <option value="Sabang">Sabang</option>
+                                                                            <option value="Aceh Barat">Aceh Barat</option>
+                                                                            <option value="Aceh Jaya">Aceh Jaya</option>
+                                                                            <option value="Nagan Raya">Nagan Raya</option>
+                                                                            <option value="Aceh Selatan">Aceh Selatan</option>
+                                                                            <option value="Aceh Barat Daya">Aceh Barat Daya</option>
+                                                                            <option value="Simeulue">Simeulue</option>
+                                                                            <option value="Pidie">Pidie</option>
+                                                                            <option value="Pidie Jaya">Pidie Jaya</option>
+                                                                            <option value="Bireuen">Bireuen</option>
+                                                                            <option value="Lhokseumawe">Lhokseumawe</option>
+                                                                            <option value="Aceh Utara">Aceh Utara</option>
+                                                                            <option value="Langsa">Langsa</option>
+                                                                            <option value="Aceh Timur">Aceh Timur</option>
+                                                                            <option value="Aceh Tamiang">Aceh Tamiang</option>
+                                                                            <option value="Aceh Tengah">Aceh Tengah</option>
+                                                                            <option value="Bener Meriah">Bener Meriah</option>
+                                                                            <option value="Aceh Tenggara">Aceh Tenggara</option>
+                                                                            <option value="Gayo Lues">Gayo Lues</option>
+                                                                            <option value="Subulussalam">Subulussalam</option>
+                                                                            <option value="Aceh Singkil">Aceh Singkil</option>
+                                                                            <option value="Padang">Padang</option>
+                                                                            <option value="Kepulauan Mentawai">Kepulauan Mentawai</option>
+                                                                            <option value="Pariaman">Pariaman</option>
+                                                                            <option value="Padang Pariaman">Padang Pariaman</option>
+                                                                            <option value="Pesisir Selatan">Pesisir Selatan</option>
+                                                                            <option value="Bukittinggi">Bukittinggi</option>
+                                                                            <option value="Agam">Agam</option>
+                                                                            <option value="Payakumbuh">Payakumbuh</option>
+                                                                            <option value="Lima Puluh Koto/Kota">Lima Puluh Koto/Kota</option>
+                                                                            <option value="Pasaman">Pasaman</option>
+                                                                            <option value="Pasaman Barat">Pasaman Barat</option>
+                                                                            <option value="Padang Panjang">Padang Panjang</option>
+                                                                            <option value="Tanah Datar">Tanah Datar</option>
+                                                                            <option value="Solok">Solok</option>
+                                                                            <option value="Sawah Lunto">Sawah Lunto</option>
+                                                                            <option value="Sijunjung (Sawah Lunto Sijunjung)">Sijunjung (Sawah Lunto Sijunjung)</option>
+                                                                            <option value="Dharmasraya">Dharmasraya</option>
+                                                                            <option value="Solok Selatan">Solok Selatan</option>
+                                                                            <option value="Pekanbaru">Pekanbaru</option>
+                                                                            <option value="Pelalawan">Pelalawan</option>
+                                                                            <option value="Kampar">Kampar</option>
+                                                                            <option value="Rokan Hulu">Rokan Hulu</option>
+                                                                            <option value="Siak">Siak</option>
+                                                                            <option value="Bengkalis">Bengkalis</option>
+                                                                            <option value="Kepulauan Meranti">Kepulauan Meranti</option>
+                                                                            <option value="Dumai">Dumai</option>
+                                                                            <option value="Rokan Hilir">Rokan Hilir</option>
+                                                                            <option value="Tanjung Pinang">Tanjung Pinang</option>
+                                                                            <option value="Bintan">Bintan</option>
+                                                                            <option value="Indragiri Hilir">Indragiri Hilir</option>
+                                                                            <option value="Indragiri Hulu">Indragiri Hulu</option>
+                                                                            <option value="Batam">Batam</option>
+                                                                            <option value="Kuantan Singingi">Kuantan Singingi</option>
+                                                                            <option value="Karimun">Karimun</option>
+                                                                            <option value="Natuna">Natuna</option>
+                                                                            <option value="Kepulauan Anambas">Kepulauan Anambas</option>
+                                                                            <option value="Lingga">Lingga</option>
+                                                                            <option value="Palembang">Palembang</option>
+                                                                            <option value="Ogan Komering Ilir">Ogan Komering Ilir</option>
+                                                                            <option value="Ogan Ilir">Ogan Ilir</option>
+                                                                            <option value="Musi Banyuasin">Musi Banyuasin</option>
+                                                                            <option value="Musi Rawas">Musi Rawas</option>
+                                                                            <option value="Banyuasin">Banyuasin</option>
+                                                                            <option value="Prabumulih">Prabumulih</option>
+                                                                            <option value="Muara Enim">Muara Enim</option>
+                                                                            <option value="Lahat">Lahat</option>
+                                                                            <option value="Empat Lawang">Empat Lawang</option>
+                                                                            <option value="Pagar Alam">Pagar Alam</option>
+                                                                            <option value="Lubuk Linggau">Lubuk Linggau</option>
+                                                                            <option value="Ogan Komering Ulu">Ogan Komering Ulu</option>
+                                                                            <option value="Ogan Komering Ulu Timur">Ogan Komering Ulu Timur</option>
+                                                                            <option value="Ogan Komering Ulu Selatan">Ogan Komering Ulu Selatan</option>
+                                                                            <option value="Pangkal Pinang">Pangkal Pinang</option>
+                                                                            <option value="Bangka">Bangka</option>
+                                                                            <option value="Bangka Barat">Bangka Barat</option>
+                                                                            <option value="Belitung">Belitung</option>
+                                                                            <option value="Belitung Timur">Belitung Timur</option>
+                                                                            <option value="Bangka Tengah">Bangka Tengah</option>
+                                                                            <option value="Bangka Selatan">Bangka Selatan</option>
+                                                                            <option value="Metro">Metro</option>
+                                                                            <option value="Lampung Tengah">Lampung Tengah</option>
+                                                                            <option value="Lampung Timur">Lampung Timur</option>
+                                                                            <option value="Tulang Bawang Barat">Tulang Bawang Barat</option>
+                                                                            <option value="Lampung Utara">Lampung Utara</option>
+                                                                            <option value="Tulang Bawang">Tulang Bawang</option>
+                                                                            <option value="Mesuji">Mesuji</option>
+                                                                            <option value="Way Kanan">Way Kanan</option>
+                                                                            <option value="Lampung Barat">Lampung Barat</option>
+                                                                            <option value="Pesisir Barat">Pesisir Barat</option>
+                                                                            <option value="Bandar Lampung">Bandar Lampung</option>
+                                                                            <option value="Lampung Selatan">Lampung Selatan</option>
+                                                                            <option value="Pesawaran">Pesawaran</option>
+                                                                            <option value="Pringsewu">Pringsewu</option>
+                                                                            <option value="Tanggamus">Tanggamus</option>
+                                                                            <option value="Jambi">Jambi</option>
+                                                                            <option value="Muaro Jambi">Muaro Jambi</option>
+                                                                            <option value="Tanjung Jabung Barat">Tanjung Jabung Barat</option>
+                                                                            <option value="Tanjung Jabung Timur">Tanjung Jabung Timur</option>
+                                                                            <option value="Batang Hari">Batang Hari</option>
+                                                                            <option value="Sungaipenuh">Sungaipenuh</option>
+                                                                            <option value="Kerinci">Kerinci</option>
+                                                                            <option value="Bungo">Bungo</option>
+                                                                            <option value="Tebo">Tebo</option>
+                                                                            <option value="Merangin">Merangin</option>
+                                                                            <option value="Sarolangun">Sarolangun</option>
+                                                                            <option value="Bengkulu">Bengkulu</option>
+                                                                            <option value="Bengkulu Utara">Bengkulu Utara</option>
+                                                                            <option value="Bengkulu Tengah">Bengkulu Tengah</option>
+                                                                            <option value="Bengkulu Selatan">Bengkulu Selatan</option>
+                                                                            <option value="Muko Muko">Muko Muko</option>
+                                                                            <option value="Seluma">Seluma</option>
+                                                                            <option value="Kaur">Kaur</option>
+                                                                            <option value="Rejang Lebong">Rejang Lebong</option>
+                                                                            <option value="Lebong">Lebong</option>
+                                                                            <option value="Kepahiang">Kepahiang</option>
+                                                                            <option value="Bandung">Bandung</option>
+                                                                            <option value="Bandung Barat">Bandung Barat</option>
+                                                                            <option value="Cimahi">Cimahi</option>
+                                                                            <option value="Purwakarta">Purwakarta</option>
+                                                                            <option value="Subang">Subang</option>
+                                                                            <option value="Karawang">Karawang</option>
+                                                                            <option value="Serang">Serang</option>
+                                                                            <option value="Pandeglang">Pandeglang</option>
+                                                                            <option value="Lebak">Lebak</option>
+                                                                            <option value="Cilegon">Cilegon</option>
+                                                                            <option value="Sukabumi">Sukabumi</option>
+                                                                            <option value="Cianjur">Cianjur</option>
+                                                                            <option value="Garut">Garut</option>
+                                                                            <option value="Cirebon">Cirebon</option>
+                                                                            <option value="Indramayu">Indramayu</option>
+                                                                            <option value="Sumedang">Sumedang</option>
+                                                                            <option value="Majalengka">Majalengka</option>
+                                                                            <option value="Kuningan">Kuningan</option>
+                                                                            <option value="Tasikmalaya">Tasikmalaya</option>
+                                                                            <option value="Ciamis">Ciamis</option>
+                                                                            <option value="Pangandaran">Pangandaran</option>
+                                                                            <option value="Banjar">Banjar</option>
+                                                                            <option value="Semarang">Semarang</option>
+                                                                            <option value="Salatiga">Salatiga</option>
+                                                                            <option value="Pekalongan">Pekalongan</option>
+                                                                            <option value="Batang">Batang</option>
+                                                                            <option value="Kendal">Kendal</option>
+                                                                            <option value="Tegal">Tegal</option>
+                                                                            <option value="Brebes">Brebes</option>
+                                                                            <option value="Pemalang">Pemalang</option>
+                                                                            <option value="Banyumas">Banyumas</option>
+                                                                            <option value="Cilacap">Cilacap</option>
+                                                                            <option value="Purbalingga">Purbalingga</option>
+                                                                            <option value="Banjarnegara">Banjarnegara</option>
+                                                                            <option value="Purworejo">Purworejo</option>
+                                                                            <option value="Kebumen">Kebumen</option>
+                                                                            <option value="Yogyakarta">Yogyakarta</option>
+                                                                            <option value="Bantul">Bantul</option>
+                                                                            <option value="Sleman">Sleman</option>
+                                                                            <option value="Kulon Progo">Kulon Progo</option>
+                                                                            <option value="Gunung Kidul">Gunung Kidul</option>
+                                                                            <option value="Magelang">Magelang</option>
+                                                                            <option value="Temanggung">Temanggung</option>
+                                                                            <option value="Wonosobo">Wonosobo</option>
+                                                                            <option value="Surakarta (Solo)">Surakarta (Solo)</option>
+                                                                            <option value="Sukoharjo">Sukoharjo</option>
+                                                                            <option value="Karanganyar">Karanganyar</option>
+                                                                            <option value="Sragen">Sragen</option>
+                                                                            <option value="Boyolali">Boyolali</option>
+                                                                            <option value="Klaten">Klaten</option>
+                                                                            <option value="Wonogiri">Wonogiri</option>
+                                                                            <option value="Grobogan">Grobogan</option>
+                                                                            <option value="Blora">Blora</option>
+                                                                            <option value="Pati">Pati</option>
+                                                                            <option value="Rembang">Rembang</option>
+                                                                            <option value="Kudus">Kudus</option>
+                                                                            <option value="Jepara">Jepara</option>
+                                                                            <option value="Demak">Demak</option>
+                                                                            <option value="Surabaya">Surabaya</option>
+                                                                            <option value="Gresik">Gresik</option>
+                                                                            <option value="Sidoarjo">Sidoarjo</option>
+                                                                            <option value="Mojokerto">Mojokerto</option>
+                                                                            <option value="Jombang">Jombang</option>
+                                                                            <option value="Bojonegoro">Bojonegoro</option>
+                                                                            <option value="Lamongan">Lamongan</option>
+                                                                            <option value="Tuban">Tuban</option>
+                                                                            <option value="Madiun">Madiun</option>
+                                                                            <option value="Magetan">Magetan</option>
+                                                                            <option value="Ngawi">Ngawi</option>
+                                                                            <option value="Ponorogo">Ponorogo</option>
+                                                                            <option value="Pacitan">Pacitan</option>
+                                                                            <option value="Kediri">Kediri</option>
+                                                                            <option value="Nganjuk">Nganjuk</option>
+                                                                            <option value="Malang">Malang</option>
+                                                                            <option value="Batu">Batu</option>
+                                                                            <option value="Blitar">Blitar</option>
+                                                                            <option value="Tulungagung">Tulungagung</option>
+                                                                            <option value="Trenggalek">Trenggalek</option>
+                                                                            <option value="Pasuruan">Pasuruan</option>
+                                                                            <option value="Probolinggo">Probolinggo</option>
+                                                                            <option value="Lumajang">Lumajang</option>
+                                                                            <option value="Jember">Jember</option>
+                                                                            <option value="Bondowoso">Bondowoso</option>
+                                                                            <option value="Situbondo">Situbondo</option>
+                                                                            <option value="Banyuwangi">Banyuwangi</option>
+                                                                            <option value="Bangkalan">Bangkalan</option>
+                                                                            <option value="Sampang">Sampang</option>
+                                                                            <option value="Pamekasan">Pamekasan</option>
+                                                                            <option value="Sumenep">Sumenep</option>
+                                                                            <option value="Banjarmasin">Banjarmasin</option>
+                                                                            <option value="Barito Kuala">Barito Kuala</option>
+                                                                            <option value="Banjarbaru">Banjarbaru</option>
+                                                                            <option value="Tanah Laut">Tanah Laut</option>
+                                                                            <option value="Tapin">Tapin</option>
+                                                                            <option value="Hulu Sungai Selatan">Hulu Sungai Selatan</option>
+                                                                            <option value="Hulu Sungai Tengah">Hulu Sungai Tengah</option>
+                                                                            <option value="Hulu Sungai Utara">Hulu Sungai Utara</option>
+                                                                            <option value="Tabalong">Tabalong</option>
+                                                                            <option value="Balangan">Balangan</option>
+                                                                            <option value="Kotabaru">Kotabaru</option>
+                                                                            <option value="Tanah Bumbu">Tanah Bumbu</option>
+                                                                            <option value="Palangka Raya">Palangka Raya</option>
+                                                                            <option value="Kapuas">Kapuas</option>
+                                                                            <option value="Barito Timur">Barito Timur</option>
+                                                                            <option value="Barito Selatan">Barito Selatan</option>
+                                                                            <option value="Barito Utara">Barito Utara</option>
+                                                                            <option value="Murung Raya">Murung Raya</option>
+                                                                            <option value="Kotawaringin Barat">Kotawaringin Barat</option>
+                                                                            <option value="Lamandau">Lamandau</option>
+                                                                            <option value="Sukamara">Sukamara</option>
+                                                                            <option value="Seruyan">Seruyan</option>
+                                                                            <option value="Kotawaringin Timur">Kotawaringin Timur</option>
+                                                                            <option value="Katingan">Katingan</option>
+                                                                            <option value="Gunung Mas">Gunung Mas</option>
+                                                                            <option value="Pulang Pisau">Pulang Pisau</option>
+                                                                            <option value="Samarinda">Samarinda</option>
+                                                                            <option value="Kutai Kartanegara">Kutai Kartanegara</option>
+                                                                            <option value="Bontang">Bontang</option>
+                                                                            <option value="Kutai Timur">Kutai Timur</option>
+                                                                            <option value="Kutai Barat">Kutai Barat</option>
+                                                                            <option value="Balikpapan">Balikpapan</option>
+                                                                            <option value="Penajam Paser Utara">Penajam Paser Utara</option>
+                                                                            <option value="Paser">Paser</option>
+                                                                            <option value="Tarakan">Tarakan</option>
+                                                                            <option value="Tana Tidung">Tana Tidung</option>
+                                                                            <option value="Malinau">Malinau</option>
+                                                                            <option value="Bulungan (Bulongan)">Bulungan (Bulongan)</option>
+                                                                            <option value="Berau">Berau</option>
+                                                                            <option value="Nunukan">Nunukan</option>
+                                                                            <option value="Pontianak">Pontianak</option>
+                                                                            <option value="Kubu Raya">Kubu Raya</option>
+                                                                            <option value="Sanggau">Sanggau</option>
+                                                                            <option value="Sintang">Sintang</option>
+                                                                            <option value="Kapuas Hulu">Kapuas Hulu</option>
+                                                                            <option value="Ketapang">Ketapang</option>
+                                                                            <option value="Kayong Utara">Kayong Utara</option>
+                                                                            <option value="Singkawang">Singkawang</option>
+                                                                            <option value="Sambas">Sambas</option>
+                                                                            <option value="Bengkayang">Bengkayang</option>
+                                                                            <option value="Landak">Landak</option>
+                                                                            <option value="Sekadau">Sekadau</option>
+                                                                            <option value="Melawi">Melawi</option>
+                                                                            <option value="Denpasar">Denpasar</option>
+                                                                            <option value="Badung">Badung</option>
+                                                                            <option value="Gianyar">Gianyar</option>
+                                                                            <option value="Bangli">Bangli</option>
+                                                                            <option value="Klungkung">Klungkung</option>
+                                                                            <option value="Karangasem">Karangasem</option>
+                                                                            <option value="Buleleng">Buleleng</option>
+                                                                            <option value="Tabanan">Tabanan</option>
+                                                                            <option value="Jembrana">Jembrana</option>
+                                                                            <option value="Mataram">Mataram</option>
+                                                                            <option value="Lombok Barat">Lombok Barat</option>
+                                                                            <option value="Lombok Utara">Lombok Utara</option>
+                                                                            <option value="Lombok Tengah">Lombok Tengah</option>
+                                                                            <option value="Lombok Timur">Lombok Timur</option>
+                                                                            <option value="Bima">Bima</option>
+                                                                            <option value="Dompu">Dompu</option>
+                                                                            <option value="Sumbawa">Sumbawa</option>
+                                                                            <option value="Sumbawa Barat">Sumbawa Barat</option>
+                                                                            <option value="Kupang">Kupang</option>
+                                                                            <option value="Sabu Raijua">Sabu Raijua</option>
+                                                                            <option value="Timor Tengah Selatan">Timor Tengah Selatan</option>
+                                                                            <option value="Timor Tengah Utara">Timor Tengah Utara</option>
+                                                                            <option value="Belu">Belu</option>
+                                                                            <option value="Alor">Alor</option>
+                                                                            <option value="Rote Ndao">Rote Ndao</option>
+                                                                            <option value="Sikka">Sikka</option>
+                                                                            <option value="Ende">Ende</option>
+                                                                            <option value="Flores Timur">Flores Timur</option>
+                                                                            <option value="Ngada">Ngada</option>
+                                                                            <option value="Nagekeo">Nagekeo</option>
+                                                                            <option value="Manggarai">Manggarai</option>
+                                                                            <option value="Manggarai Timur">Manggarai Timur</option>
+                                                                            <option value="Lembata">Lembata</option>
+                                                                            <option value="Manggarai Barat">Manggarai Barat</option>
+                                                                            <option value="Sumba Timur">Sumba Timur</option>
+                                                                            <option value="Sumba Barat">Sumba Barat</option>
+                                                                            <option value="Sumba Barat Daya">Sumba Barat Daya</option>
+                                                                            <option value="Sumba Tengah">Sumba Tengah</option>
+                                                                            <option value="Makassar">Makassar</option>
+                                                                            <option value="Gowa">Gowa</option>
+                                                                            <option value="Bone">Bone</option>
+                                                                            <option value="Maros">Maros</option>
+                                                                            <option value="Pangkajene Kepulauan">Pangkajene Kepulauan</option>
+                                                                            <option value="Barru">Barru</option>
+                                                                            <option value="Soppeng">Soppeng</option>
+                                                                            <option value="Wajo">Wajo</option>
+                                                                            <option value="Parepare">Parepare</option>
+                                                                            <option value="Pinrang">Pinrang</option>
+                                                                            <option value="Polewali Mandar">Polewali Mandar</option>
+                                                                            <option value="Mamuju">Mamuju</option>
+                                                                            <option value="Mamasa">Mamasa</option>
+                                                                            <option value="Majene">Majene</option>
+                                                                            <option value="Mamuju Utara">Mamuju Utara</option>
+                                                                            <option value="Sidenreng Rappang/Rapang">Sidenreng Rappang/Rapang</option>
+                                                                            <option value="Sinjai">Sinjai</option>
+                                                                            <option value="Enrekang">Enrekang</option>
+                                                                            <option value="Tana Toraja">Tana Toraja</option>
+                                                                            <option value="Toraja Utara">Toraja Utara</option>
+                                                                            <option value="Luwu Utara">Luwu Utara</option>
+                                                                            <option value="Palope">Palope</option>
+                                                                            <option value="Luwu">Luwu</option>
+                                                                            <option value="Luwu Timur">Luwu Timur</option>
+                                                                            <option value="Takalar">Takalar</option>
+                                                                            <option value="Jeneponto">Jeneponto</option>
+                                                                            <option value="Bantaeng">Bantaeng</option>
+                                                                            <option value="Bulukumba">Bulukumba</option>
+                                                                            <option value="Selayar (Kepulauan Selayar)">Selayar (Kepulauan Selayar)</option>
+                                                                            <option value="Kendari">Kendari</option>
+                                                                            <option value="Konawe">Konawe</option>
+                                                                            <option value="Konawe Utara">Konawe Utara</option>
+                                                                            <option value="Konawe Selatan">Konawe Selatan</option>
+                                                                            <option value="Kolaka">Kolaka</option>
+                                                                            <option value="Muna">Muna</option>
+                                                                            <option value="Buton Utara">Buton Utara</option>
+                                                                            <option value="Bau-Bau">Bau-Bau</option>
+                                                                            <option value="Buton">Buton</option>
+                                                                            <option value="Bombana">Bombana</option>
+                                                                            <option value="Wakatobi">Wakatobi</option>
+                                                                            <option value="Kolaka Utara">Kolaka Utara</option>
+                                                                            <option value="Palu">Palu</option>
+                                                                            <option value="Sigi">Sigi</option>
+                                                                            <option value="Donggala">Donggala</option>
+                                                                            <option value="Parigi Moutong">Parigi Moutong</option>
+                                                                            <option value="Toli-Toli">Toli-Toli</option>
+                                                                            <option value="Buol">Buol</option>
+                                                                            <option value="Morowali">Morowali</option>
+                                                                            <option value="Morowali Utara">Morowali Utara</option>
+                                                                            <option value="Tojo Una-Una">Tojo Una-Una</option>
+                                                                            <option value="Poso">Poso</option>
+                                                                            <option value="Ampana">Ampana</option>
+                                                                            <option value="Kepulauan Sangihe">Kepulauan Sangihe</option>
+                                                                            <option value="Kepulauan Talaud">Kepulauan Talaud</option>
+                                                                            <option value="Minahasa">Minahasa</option>
+                                                                            <option value="Sangihe">Sangihe</option>
+                                                                            <option value="Bolaang Mongondow">Bolaang Mongondow</option>
+                                                                            <option value="Bolaang Mongondow Utara">Bolaang Mongondow Utara</option>
+                                                                            <option value="Bolaang Mongondow Selatan">Bolaang Mongondow Selatan</option>
+                                                                            <option value="Bolaang Mongondow Timur">Bolaang Mongondow Timur</option>
+                                                                            <option value="Gorontalo">Gorontalo</option>
+                                                                            <option value="Gorontalo Utara">Gorontalo Utara</option>
+                                                                            <option value="Boalemo">Boalemo</option>
+                                                                            <option value="Pohuwato">Pohuwato</option>
+                                                                            <option value="Bone Bolango">Bone Bolango</option>
+                                                                            <option value="Kota Gorontalo">Kota Gorontalo</option>
+                                                                            <option value="Kepulauan Seribu">Kepulauan Seribu</option>
+                                                                            <option value="Jakarta Selatan">Jakarta Selatan</option>
+                                                                            <option value="Jakarta Timur">Jakarta Timur</option>
+                                                                            <option value="Jakarta Barat">Jakarta Barat</option>
+                                                                            <option value="Jakarta Utara">Jakarta Utara</option>
+                                                                            <option value="Jakarta Pusat">Jakarta Pusat</option>
+                                                                            <option value="Yogyakarta">Yogyakarta</option>
+                                                                            <option value="Kota Surakarta">Kota Surakarta</option>
+                                                                            <option value="Kota Magelang">Kota Magelang</option>
+                                                                            <option value="Kota Pekalongan">Kota Pekalongan</option>
+                                                                            <option value="Kota Salatiga">Kota Salatiga</option>
+                                                                            <option value="Kota Semarang">Kota Semarang</option>
+                                                                            <option value="Kota Batu">Kota Batu</option>
+                                                                            <option value="Kota Blitar">Kota Blitar</option>
+                                                                            <option value="Kota Malang">Kota Malang</option>
+                                                                            <option value="Kota Probolinggo">Kota Probolinggo</option>
+                                                                            <option value="Kota Mojokerto">Kota Mojokerto</option>
+                                                                            <option value="Kota Kediri">Kota Kediri</option>
+                                                                            <option value="Kota Jember">Kota Jember</option>
+                                                                            <option value="Kota Banjarmasin">Kota Banjarmasin</option>
+                                                                            <option value="Kota Banjarbaru">Kota Banjarbaru</option>
+                                                                            <option value="Kota Pontianak">Kota Pontianak</option>
+                                                                            <option value="Kota Singkawang">Kota Singkawang</option>
+                                                                            <option value="Kota Palangka Raya">Kota Palangka Raya</option>
+                                                                            <option value="Kota Samarinda">Kota Samarinda</option>
+                                                                            <option value="Kota Bontang">Kota Bontang</option>
+                                                                            <option value="Kota Mataram">Kota Mataram</option>
+                                                                            <option value="Kota Kupang">Kota Kupang</option>
+                                                                            <option value="Kota Denpasar">Kota Denpasar</option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <button type="submit" class="btn btn-primary">Filter</button>
+                                                                </form>
+                                                            </div>
+                                                            <!--end::Form-->
+                                                        </div>
+                                                        <!--end::Menu 1-->
+                                                        <!--end::Menu-->
+                                                    </div>
+                                                    <!--end::Wrapper-->
+                                                </div>
+                                            </div>                                           
+                                            <!--begin::Body-->
+                                            <div class="card-body py-3">
+                                                <!--begin::Table container-->
+                                                <div class="table-responsive">
+                                                    <!--begin::Table-->
+                                                    <table class="table table-row-dashed table-row-gray-300 align-middle gs-0 gy-4">
+                                                        <!--begin::Table head-->
+                                                        <thead>
+                                                            <tr class="fw-bolder text-muted">
+                                                                <th class="w-25px">
+                                                                    <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                                                        <input class="form-check-input" type="checkbox" value="1" data-kt-check="true" data-kt-check-target=".widget-9-check" />
+                                                                    </div>
+                                                                </th>
+                                                                <th class="min-w-150px">Nama</th>
+                                                                <th class="min-w-150px">Order No</th>
+                                                                <th class="min-w-150px">Phone</th>
+                                                                <th class="min-w-150px">Amount</th>
+                                                                <th class="min-w-150px">Data OCR</th>
+                                                                <th class="min-w-150px">OVD</th>
+                                                                <th class="min-w-150px">Area</th>
+                                                                <th class="min-w-150px">Due Date</th>
+                                                                <th class="min-w-150px">Contact Emergency 1</th>
+                                                                <th class="min-w-150px">Contact Emergency 2</th>
+                                                                <th class="min-w-100px">Foto 1</th>
+                                                                <th class="min-w-100px">Outstanding</th>
+                                                                <th class="min-w-100px">Repay Principal Amount</th>
+                                                            </tr>
+                                                        </thead>
+                                                        <!--end::Table head-->
+                                                        <!--begin::Table body-->
+                                                        <tbody>
+                                                            {% if data %}
+                                                                {% for item in data %}
+                                                                <tr>
+                                                                    <td>
+                                                                        <div class="form-check form-check-sm form-check-custom form-check-solid">
+                                                                            <input class="form-check-input widget-9-check" type="checkbox" value="{{ item['order_no'] }}" />
+                                                                        </div>
+                                                                    </td>
+                                                                    <td>{{ item['name'] }}</td>
+                                                                    <td>{{ item['order_no'] }}</td>
+                                                                    <td>{{ item['phone'] }}</td>
+                                                                    <td>Rp. {{ item['application_amount'] }}</td>
+                                                                    <td>{{ item['ocr_area'] }}, {{ item['ocr_province'] }}, {{ item['ocr_city'] }}</td>
+                                                                    <td>{{ item['overdue_day'] }}</td>
+                                                                    <td>{{ item['area'] }}
+                                                                        ,<br>
+                                                                        <br>{{item['gps']}}</td>
+                                                                    <td>{{ item['due_date'] }}</td>
+                                                                    <td>Nama : {{ item['emergs_name0'] }} 
+                                                                        <br>No : {{ item['emergs_phone0'] }}</td>
+                                                                    <td>Nama : {{ item['emergs_name1'] }} 
+                                                                        <br>No : {{ item['emergs_phone1'] }}</td>
+                                                                    <td>
+                                                                        <img src="{{ item['face_photo_url'] }}" alt="Photo 1" style="max-width: 100px; max-height: 100px;">
+                                                                    </td>
+                                                                    <td>Rp. {{ item['outstanding'] }}</td>
+                                                                    <td>Rp. {{ item['repay_principal_amt'] }}</td>
+                                                                </tr>
+                                                                {% endfor %}
+                                                            {% else %}
+                                                                <tr>
+                                                                    <td colspan="10">No data available</td>
+                                                                </tr>
+                                                            {% endif %}
+                                                        </tbody>
+                                                        
+                                                        <!--end::Table body-->
+                                                    </table>
+                                                    <!--end::Table-->
+                                                    
+                                                </div>
+                                                <!--end::Table container-->
+                                            </div>
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <div>
+                                                    <p>Showing page {{ page }} of {{ total_pages }}.</p>
+                                                </div>
+                                                <div>
+                                                    <nav aria-label="Page navigation example">
+                                                        <ul class="pagination">
+                                                            {% if page > 1 %}
+                                                            <li class="page-item">
+                                                                <a class="page-link" href="{{ url_for('view_excel_data', page=page-1) }}" aria-label="Previous">
+                                                                    <span aria-hidden="true">&laquo;</span>
+                                                                </a>
+                                                            </li>
+                                                            {% else %}
+                                                            <li class="page-item disabled">
+                                                                <span class="page-link" aria-label="Previous">
+                                                                    <span aria-hidden="true">&laquo;</span>
+                                                                </span>
+                                                            </li>
+                                                            {% endif %}
+                                            
+                                                            {% if start_page > 1 %}
+                                                            <li class="page-item">
+                                                                <a class="page-link" href="{{ url_for('view_excel_data', page=1) }}">1</a>
+                                                            </li>
+                                                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                                                            {% endif %}
+                                            
+                                                            {% for p in range(start_page, end_page + 1) %}
+                                                            <li class="page-item {% if p == page %}active{% endif %}">
+                                                                <a class="page-link" href="{{ url_for('view_excel_data', page=p) }}">{{ p }}</a>
+                                                            </li>
+                                                            {% endfor %}
+                                            
+                                                            {% if end_page < total_pages %}
+                                                            <li class="page-item disabled"><span class="page-link">...</span></li>
+                                                            <li class="page-item">
+                                                                <a class="page-link" href="{{ url_for('view_excel_data', page=total_pages) }}">{{ total_pages }}</a>
+                                                            </li>
+                                                            {% endif %}
+                                            
+                                                            {% if page < total_pages %}
+                                                            <li class="page-item">
+                                                                <a class="page-link" href="{{ url_for('view_excel_data', page=page+1) }}" aria-label="Next">
+                                                                    <span aria-hidden="true">&raquo;</span>
+                                                                </a>
+                                                            </li>
+                                                            {% else %}
+                                                            <li class="page-item disabled">
+                                                                <span class="page-link" aria-label="Next">
+                                                                    <span aria-hidden="true">&raquo;</span>
+                                                                </span>
+                                                            </li>
+                                                            {% endif %}
+                                                        </ul>
+                                                    </nav>
+                                                </div>
+                                            </div>
+                                            <!--begin::Body-->
+                                        </div>
+                                        <!--end::Tables Widget 9-->
+                                    </div>
+									<!--end::Col-->
+								</div>
+								<!--end::Row-->
+							</div>
+							<!--end::Container-->
+						</div>
+						<!--end::Post-->
+					</div>
+					<!--end::Content-->
+					<!--begin::Footer-->
+					<div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+						<!--begin::Container-->
+						<div class="container-fluid d-flex flex-column flex-md-row align-items-center justify-content-between">
+							<!--begin::Copyright-->
+							<div class="text-dark order-2 order-md-1">
+								<span class="text-muted fw-bold me-1">2024©</span>
+								<a href="https://uatas.id" target="_blank" class="text-gray-800 text-hover-primary">Uatas</a>
+							</div>
+							<!--end::Copyright-->
+							<!--begin::Menu-->
+							<ul class="menu menu-gray-600 menu-hover-primary fw-bold order-1">
+								<li class="menu-item">
+									<a href="https://uatas.id" target="_blank" class="menu-link px-2">About</a>
+								</li>
+							</ul>
+							<!--end::Menu-->
+						</div>
+						<!--end::Container-->
+					</div>
+					<!--end::Footer-->
+				</div>
+				<!--end::Wrapper-->
+			</div>
+			<!--end::Page-->
+		</div>
+		<!--end::Root-->
+		<!--begin::Drawers-->
+		<!--begin::Scrolltop-->
+		<div id="kt_scrolltop" class="scrolltop" data-kt-scrolltop="true">
+			<!--begin::Svg Icon | path: icons/duotune/arrows/arr066.svg-->
+			<span class="svg-icon">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
+					<rect opacity="0.5" x="13" y="6" width="13" height="2" rx="1" transform="rotate(90 13 6)" fill="black" />
+					<path d="M12.5657 8.56569L16.75 12.75C17.1642 13.1642 17.8358 13.1642 18.25 12.75C18.6642 12.3358 18.6642 11.6642 18.25 11.25L12.7071 5.70711C12.3166 5.31658 11.6834 5.31658 11.2929 5.70711L5.75 11.25C5.33579 11.6642 5.33579 12.3358 5.75 12.75C6.16421 13.1642 6.83579 13.1642 7.25 12.75L11.4343 8.56569C11.7467 8.25327 12.2533 8.25327 12.5657 8.56569Z" fill="black" />
+				</svg>
+			</span>
+			<!--end::Svg Icon-->
+		</div>
+		<!--end::Scrolltop-->
+		<!--end::Main-->
+		<script>var hostUrl = "../static/assets/";</script>
+		<!--begin::Javascript-->
+		<!--begin::Global Javascript Bundle(used by all pages)-->
+		<script src="../static/assets/plugins/global/plugins.bundle.js"></script>
+		<script src="../static/assets/js/scripts.bundle.js"></script>
+		<!--end::Global Javascript Bundle-->
+		<!--begin::Page Vendors Javascript(used by this page)-->
+		<script src="../static/assets/plugins/custom/fullcalendar/fullcalendar.bundle.js"></script>
+		<!--end::Page Vendors Javascript-->
+		<!--begin::Page Custom Javascript(used by this page)-->
+		<script src="../static/assets/js/custom/widgets.js"></script>
+		<script src="../static/assets/js/custom/apps/chat/chat.js"></script>
+		<script src="../static/assets/js/custom/modals/create-app.js"></script>
+		<script src="../static/assets/js/custom/modals/upgrade-plan.js"></script>
+		<!--end::Page Custom Javascript-->
+        <script>
+            // Fungsi untuk menampilkan loading overlay
+            function showLoading() {
+                document.querySelector('.loading-overlay').style.display = 'block';
+            }
+        
+            // Menambahkan event listener pada form upload
+            document.getElementById('uploadForm').addEventListener('submit', function() {
+                showLoading(); // Tampilkan overlay saat form di-submit
+            });
+        </script>        
+		<!--end::Javascript-->
+	</body>
+	<!--end::Body-->
+</html>
