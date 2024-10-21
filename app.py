@@ -16,7 +16,6 @@ from geopy.geocoders import Nominatim
 from datetime import datetime
 import datetime
 from PIL import Image, ImageDraw, ImageFont
-from flask_session import Session
 import requests
 
 app = Flask(__name__)
@@ -24,10 +23,6 @@ app.config['SECRET_KEY'] = 'b35dfe6ce150230940bd145823034485'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234567890@localhost/app_excel3'
 app.config['MAX_CONTENT_LENGTH'] = 150 * 1024 * 1024  # 150 MB
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
-app.config['SESSION_TYPE'] = 'filesystem'  # Atau 'redis', 'memcached', dll.
-app.config['SESSION_PERMANENT'] = False
-app.config['DEBUG'] = True
-Session(app)
 
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
@@ -66,7 +61,7 @@ class DataExcel(db.Model):
     ocr_city = db.Column(db.String(255))
     overdue_day = db.Column(db.Integer)
     area = db.Column(db.String(255))
-    gps = db.Column(db.String(500))
+    gps = db.Column(db.String(255))
     due_date = db.Column(db.String(255))
     application_amount = db.Column(db.Float)
     contactable = db.Column(db.String(255))
@@ -450,15 +445,17 @@ def upload_report(order_no):
                     
                 gambar_list.append(filename)
 
-        # Replace old images with new ones
-        if gambar_list:
-            detail_data.gambar = ','.join(gambar_list)  # Replace existing images
+        # Combine existing images with the new ones
+        if detail_data.gambar:
+            existing_gambar = detail_data.gambar.split(',')
+            gambar_list = existing_gambar + gambar_list
+
+        detail_data.gambar = ','.join(gambar_list)
 
     # Commit all changes to the database
     db.session.commit()  # Pastikan untuk commit perubahan ke database
-    flash('Laporan berhasil diupload dan gambar telah diupdate!', 'success')
+    flash('Laporan berhasil diupload!', 'success')
     return redirect(url_for('detail_user', order_no=order_no))
-
 
 def get_location_details(latitude, longitude):
     geolocator = Nominatim(user_agent="excel-app")
@@ -514,7 +511,7 @@ def add_watermark(image_path, location, latitude, longitude):
 
         # Menggunakan font TTF dengan ukuran lebih besar
         font_path = "static/font/Raleway-Bold.ttf"  # Ganti dengan path ke font TTF Anda
-        font_size = 100  # Ukuran font yang lebih besar
+        font_size = 30  # Ukuran font yang lebih besar
         font = ImageFont.truetype(font_path, font_size)
 
         # Mendapatkan ukuran teks untuk penentuan posisi
@@ -527,7 +524,7 @@ def add_watermark(image_path, location, latitude, longitude):
         y = height - text_height - 10  # Margin bawah
 
         # Menambahkan watermark ke gambar dengan pemisahan baris
-        draw.multiline_text((x, y), watermark_text, fill=(0, 0, 0), font=font, spacing=2)
+        draw.multiline_text((x, y), watermark_text, fill=(255, 255, 255), font=font, spacing=2)
 
         # Menyimpan gambar dengan watermark
         img.save(image_path)  # Atau simpan ke lokasi lain jika perlu
@@ -1052,9 +1049,9 @@ def apply_collector():
     flash(f'Collector {selected_user} has been successfully applied to selected orders!', 'success')
     return redirect(url_for('bagi_excel_data_orang'))
 
+
 if __name__ == '__main__':
     # Create tables if not exists
-    app.run(debug=True) 
     with app.app_context():
         db.create_all()
-    app.run(host='0.0.0.0', port=5000)
+    app.run(debug=True)
