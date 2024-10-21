@@ -21,11 +21,12 @@ import requests
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'b35dfe6ce150230940bd145823034485'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234567890@localhost/app_excel3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/app_excel3'
 app.config['MAX_CONTENT_LENGTH'] = 150 * 1024 * 1024  # 150 MB
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 app.config['SESSION_TYPE'] = 'filesystem'  # Atau 'redis', 'memcached', dll.
 app.config['SESSION_PERMANENT'] = False
+app.config['DEBUG'] = True
 Session(app)
 
 db = SQLAlchemy(app)
@@ -1053,6 +1054,7 @@ def apply_collector():
 
 if __name__ == '__main__':
     # Create tables if not exists
+    app.run(debug=True) 
     with app.app_context():
         db.create_all()
     app.run(host='0.0.0.0', port=5000)
