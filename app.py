@@ -66,7 +66,7 @@ class DataExcel(db.Model):
     ocr_city = db.Column(db.String(255))
     overdue_day = db.Column(db.Integer)
     area = db.Column(db.String(255))
-    gps = db.Column(db.String(255))
+    gps = db.Column(db.String(500))
     due_date = db.Column(db.String(255))
     application_amount = db.Column(db.Float)
     contactable = db.Column(db.String(255))
