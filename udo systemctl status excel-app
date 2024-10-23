@@ -1,0 +1,23 @@
+[0;1;32m●[0m gunicorn.service - Gunicorn instance to serve excel-app
+     Loaded: loaded (/etc/systemd/system/gunicorn.service; enabled; vendor preset: enabled)
+     Active: [0;1;32mactive (running)[0m since Tue 2024-10-22 12:24:32 CST; 5min ago
+   Main PID: 2692 (gunicorn)
+      Tasks: 7 (limit: 4180)
+     Memory: 2.2G
+        CPU: 2min 3.060s
+     CGroup: /system.slice/gunicorn.service
+             ├─2692 /usr/bin/python3 /usr/local/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 --timeout 120 --limit-request-line 8190 app:app
+             ├─2694 /usr/bin/python3 /usr/local/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 --timeout 120 --limit-request-line 8190 app:app
+             ├─2695 /usr/bin/python3 /usr/local/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 --timeout 120 --limit-request-line 8190 app:app
+             └─2696 /usr/bin/python3 /usr/local/bin/gunicorn --workers 3 --bind 0.0.0.0:5000 --timeout 120 --limit-request-line 8190 app:app
+
+Oct 22 12:24:32 iZk1aigq8eyd9yj21jb673Z gunicorn[2692]: [2024-10-22 12:24:32 +0800] [2692] [INFO] Using worker: sync
+Oct 22 12:24:32 iZk1aigq8eyd9yj21jb673Z gunicorn[2694]: [2024-10-22 12:24:32 +0800] [2694] [INFO] Booting worker with pid: 2694
+Oct 22 12:24:32 iZk1aigq8eyd9yj21jb673Z gunicorn[2695]: [2024-10-22 12:24:32 +0800] [2695] [INFO] Booting worker with pid: 2695
+Oct 22 12:24:32 iZk1aigq8eyd9yj21jb673Z gunicorn[2696]: [2024-10-22 12:24:32 +0800] [2696] [INFO] Booting worker with pid: 2696
+Oct 22 12:26:40 iZk1aigq8eyd9yj21jb673Z gunicorn[2694]: /usr/local/lib/python3.10/dist-packages/werkzeug/sansio/response.py:227: UserWarning: The 'session' cookie is too large: the value was 4474 bytes but the header required 26 extra bytes. The final size was 4500 bytes but the limit is 4093 bytes. Browsers may silently ignore cookies larger than this.
+Oct 22 12:26:40 iZk1aigq8eyd9yj21jb673Z gunicorn[2694]:   dump_cookie(
+Oct 22 12:27:43 iZk1aigq8eyd9yj21jb673Z gunicorn[2694]: /usr/local/lib/python3.10/dist-packages/werkzeug/sansio/response.py:227: UserWarning: The 'session' cookie is too large: the value was 4474 bytes but the header required 26 extra bytes. The final size was 4500 bytes but the limit is 4093 bytes. Browsers may silently ignore cookies larger than this.
+Oct 22 12:27:43 iZk1aigq8eyd9yj21jb673Z gunicorn[2694]:   dump_cookie(
+Oct 22 12:29:02 iZk1aigq8eyd9yj21jb673Z gunicorn[2696]: /usr/local/lib/python3.10/dist-packages/werkzeug/sansio/response.py:227: UserWarning: The 'session' cookie is too large: the value was 4474 bytes but the header required 26 extra bytes. The final size was 4500 bytes but the limit is 4093 bytes. Browsers may silently ignore cookies larger than this.
+Oct 22 12:29:02 iZk1aigq8eyd9yj21jb673Z gunicorn[2696]:   dump_cookie(

@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect, url_for, flash
+from flask import Flask, request, render_template, redirect, url_for, flash, url_for
 from flask import session
 from flask import send_file, abort
 from flask_sqlalchemy import SQLAlchemy
@@ -18,6 +18,9 @@ import datetime
 from PIL import Image, ImageDraw, ImageFont
 import requests
 import subprocess
+from flask_migrate import Migrate
+from celery_config import make_celery
+import subprocess
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'b35dfe6ce150230940bd145823034485'
@@ -25,11 +28,14 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234567890@localho
 app.config['MAX_CONTENT_LENGTH'] = 150 * 1024 * 1024  # 150 MB
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
+celery = make_celery(app)
+
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_manager = LoginManager(app)
 login_manager.login_view = 'login'
 geolocator = Nominatim(user_agent="geoapiExercises")
+migrate = Migrate(app, db)
 
 ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg', 'gif'}  # Add other allowed extensions as needed
 
@@ -57,11 +63,11 @@ class DataExcel(db.Model):
     idcard = db.Column(db.String(255))
     phone = db.Column(db.String(255))
     name = db.Column(db.String(255))
-    ocr_area = db.Column(db.String(255))
-    ocr_province = db.Column(db.String(255))
-    ocr_city = db.Column(db.String(255))
+    ocr_area = db.Column(db.String(500))
+    ocr_province = db.Column(db.String(500))
+    ocr_city = db.Column(db.String(500))
     overdue_day = db.Column(db.Integer)
-    area = db.Column(db.String(255))
+    area = db.Column(db.String(1000))
     gps = db.Column(db.String(500))
     due_date = db.Column(db.String(255))
     application_amount = db.Column(db.Float)
@@ -73,7 +79,7 @@ class DataExcel(db.Model):
     emergs_name1 = db.Column(db.String(255))
     emergs_phone1 = db.Column(db.String(255))
     emergs_relation1 = db.Column(db.String(255))
-    face_photo_url = db.Column(db.String(255))
+    face_photo_url = db.Column(db.String(500))
     outstanding = db.Column(db.Float)
     repay_principal_amt = db.Column(db.Float)
     nama_user = db.Column(db.String(255))
@@ -206,15 +212,34 @@ def import_excel():
         return redirect(request.url)
 
 @app.route('/execute-query', methods=['POST'])
+#def execute_query():
+#    try:
+#        # Jalankan exc.py menggunakan subprocess
+#        result = subprocess.run(['python', 'exc.py'], check=True, capture_output=True, text=True)
+#        flash('File exc.py telah dijalankan berhasil! Output: ' + result.stdout, 'success')
+#    except subprocess.CalledProcessError as e:
+#        flash('Terjadi kesalahan saat menjalankan file exc.py: ' + e.stderr, 'danger')
+#   
+#    return redirect(url_for('upload_excel'))
+
 def execute_query():
+    # Call the background task instead of directly executing subprocess
+    run_exc_py_task.delay()
+    flash('File exc.py sedang dijalankan di latar belakang!', 'info')
+    return redirect(url_for('upload_excel'))
+
+# Define the Celery task for running the script asynchronously
+@celery.task
+def run_exc_py_task():
     try:
-        # Jalankan exc.py menggunakan subprocess
-        result = subprocess.run(['python', 'exc.py'], check=True, capture_output=True, text=True)
-        flash('File exc.py telah dijalankan berhasil! Output: ' + result.stdout, 'success')
+        result = subprocess.run(['python3', 'exc.py'], check=True, capture_output=True, text=True)
+        return f'Output: {result.stdout}'
     except subprocess.CalledProcessError as e:
-        flash('Terjadi kesalahan saat menjalankan file exc.py: ' + e.stderr, 'danger')
-    
-    return redirect(url_for('upload_excel')) 
+        error_message = e.stderr if e.stderr else 'Tidak ada output kesalahan.'
+        return f'Error: {error_message}'
+
+if __name__ == '__main__':
+    app.run(debug=True)
 
 @app.route('/edit-user/<int:user_id>', methods=['GET', 'POST'])
 @login_required

@@ -53,7 +53,7 @@ def import_excel_to_db(file_path, db_url, table_name):
 file_path = 'static/uploads/1.xlsx'
 
 # URL koneksi ke MySQL
-db_url = 'mysql+pymysql://root:@localhost/app_excel3'
+db_url = 'mysql+pymysql://root:1234567890@localhost/app_excel3'
 
 # Nama tabel di database MySQL
 table_name = 'data_excel'
