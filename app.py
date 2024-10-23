@@ -17,10 +17,11 @@ from datetime import datetime
 import datetime
 from PIL import Image, ImageDraw, ImageFont
 import requests
+import subprocess
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'b35dfe6ce150230940bd145823034485'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:1234567890@localhost/app_excel3'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/app_excel3'
 app.config['MAX_CONTENT_LENGTH'] = 150 * 1024 * 1024  # 150 MB
 app.config['UPLOAD_FOLDER'] = 'static/uploads'
 
@@ -174,6 +175,46 @@ def dashboard():
         return render_template('admin_dashboard.html', users=users)
     elif current_user.role == 'user':
         return redirect(url_for('show_data'))
+    
+@app.route('/import-excel', methods=['POST'])
+def import_excel():
+    if 'file' not in request.files:
+        flash('No file part')
+        return redirect(request.url)
+    
+    file = request.files['file']
+
+    if file.filename == '':
+        flash('No selected file')
+        return redirect(request.url)
+
+    if file and file.filename.endswith('.xlsx'):
+        # Path untuk menyimpan file dengan nama '1.xlsx'
+        save_path = os.path.join(app.config['UPLOAD_FOLDER'], '1.xlsx')
+
+        # Membuat folder 'xcl/' jika belum ada
+        if not os.path.exists(app.config['UPLOAD_FOLDER']):
+            os.makedirs(app.config['UPLOAD_FOLDER'])
+
+        # Jika file '1.xlsx' sudah ada, akan di-replace
+        file.save(save_path)
+        
+        flash('File berhasil diunggah dan di-replace!')
+        return redirect(url_for('upload_excel'))  # Ganti 'index' dengan halaman yang ingin diarahkan setelah upload
+    else:
+        flash('Hanya file dengan format .xlsx yang diizinkan!')
+        return redirect(request.url)
+
+@app.route('/execute-query', methods=['POST'])
+def execute_query():
+    try:
+        # Jalankan exc.py menggunakan subprocess
+        result = subprocess.run(['python', 'exc.py'], check=True, capture_output=True, text=True)
+        flash('File exc.py telah dijalankan berhasil! Output: ' + result.stdout, 'success')
+    except subprocess.CalledProcessError as e:
+        flash('Terjadi kesalahan saat menjalankan file exc.py: ' + e.stderr, 'danger')
+    
+    return redirect(url_for('upload_excel')) 
 
 @app.route('/edit-user/<int:user_id>', methods=['GET', 'POST'])
 @login_required
