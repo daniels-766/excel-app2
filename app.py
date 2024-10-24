@@ -239,7 +239,8 @@ def run_exc_py_task():
         return f'Error: {error_message}'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(port=5000)
+#(debug=True)
 
 @app.route('/edit-user/<int:user_id>', methods=['GET', 'POST'])
 @login_required
